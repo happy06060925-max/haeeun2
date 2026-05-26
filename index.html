@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퍼포먼스 마케터 포트폴리오</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 1. 기본 스타일 리셋 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #0f172a; /* 트렌디하고 깊이감 있는 다크 네이비 배경 */
+            color: #f8fafc;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* 2. 상단 네비게이션 헤더 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 8%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px); /* 뒤 배경이 흐려지는 고급스러운 글래스모피즘 효과 */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin-left: 2.5rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* 3. 메인 Hero 섹션 (텍스트와 사진 레이아웃) */
+        .hero-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10%;
+            max-width: 1300px;
+            margin: 0 auto;
+            gap: 4rem;
+        }
+
+        /* 왼쪽: 타이틀 카피 영역 */
+        .hero-text {
+            flex: 1.2;
+            text-align: left;
+        }
+
+        .main-copy {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 1.8rem;
+            word-break: keep-all; /* 조사나 한글 단어가 깨지지 않게 줄바꿈 처리 */
+        }
+
+        /* 강조 키워드 그라데이션 컬러 (디자인 감각과 이성적 데이터 표현) */
+        .highlight-blue {
+            background: linear-gradient(to right, #38bdf8, #0ea5e9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .highlight-indigo {
+            background: linear-gradient(to right, #c7d2fe, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sub-copy {
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            word-break: keep-all;
+        }
+
+        /* 기술 스택 미니 태그 */
+        .skill-tags {
+            display: flex;
+            gap: 0.6rem;
+            margin-bottom: 3.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.4rem 1.1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        /* 전환 유도 액션 버튼 (CTA) */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+            color: white;
+            text-decoration: none;
+            padding: 0.9rem 2.2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: 0 4px 20px rgba(79, 70, 229, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(79, 70, 229, 0.45);
+        }
+
+        /* 오른쪽: 프로필 이미지 영역 */
+        .hero-image-area {
+            flex: 0.8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* 이미지 뒤쪽 은은하게 퍼지는 후광(Glow) 효과 */
+        .image-glow {
+            position: absolute;
+            width: 380px;
+            height: 380px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, rgba(6, 182, 212, 0.05) 50%, rgba(0,0,0,0) 70%);
+            z-index: 1;
+        }
+
+        /* 깔끔하고 트렌디한 원형 프로필 프레임 */
+        .profile-frame {
+            position: relative;
+            z-index: 2;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            background-color: #fff; /* 증명사진의 흰 배경과 자연스럽게 매칭 */
+        }
+
+        .profile-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 프레임 크기에 맞춰 자동 자르기 */
+            object-position: center top; /* 인물 얼굴 중심으로 정렬 */
+        }
+
+        /* 4. 모바일 및 태블릿 대응 반응형 디자인 */
+        @media (max-width: 1024px) {
+            .hero-container {
+                flex-direction: column-reverse; /* 모바일에서는 사진이 위로, 글씨가 아래로 배치 */
+                justify-content: center;
+                padding-top: 8rem;
+                padding-bottom: 4rem;
+                gap: 2.5rem;
+                text-align: center;
+            }
+            .hero-text {
+                text-align: center;
+            }
+            .main-copy {
+                font-size: 2.2rem;
+            }
+            .skill-tags {
+                justify-content: center;
+            }
+            .profile-frame {
+                width: 260px;
+                height: 260px;
+            }
+            .image-glow {
+                width: 300px;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">MARKETER.PF</div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-container">
+            
+            <div class="hero-text">
+                <h1 class="main-copy">
+                    <span class="highlight-blue">감각</span>을 그리고 <br>
+                    <span class="highlight-indigo">데이터</span>로 증명하는,<br>
+                    준비된 퍼포먼스 마케터!
+                </h1>
+                
+                <p class="sub-copy">
+                    시각적 몰입을 만드는 어도비 활용 능력과<br>
+                    SEO · GA 데이터 분석 역량으로 확실한 성과를 도출합니다.
+                </p>
+
+                <div class="skill-tags">
+                    <span class="tag">Google Analytics (GA4)</span>
+                    <span class="tag">SEO 검색최적화</span>
+                    <span class="tag">Adobe Photoshop & Premiere</span>
+                    <span class="tag">Web UI/UX Design</span>
+                </div>
+                
+                <a href="#projects" class="cta-button">프로젝트 보러가기</a>
+            </div>
+
+            <div class="hero-image-area">
+                <div class="image-glow"></div>
+                <div class="profile-frame">
+                    <img src="profile.png" alt="퍼포먼스 마케터 프로필 사진">
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+</body>
+</html>
