@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>기획부터 소재 제작까지, 준비된 마케팅 기획자 이해은입니다</title>
 
-<!-- 검색 결과에 노출되는 설명문 (110~130자 내외 최적화) -->
 <meta name="description" content="디자인적 감각과 탄탄한 문서 기획력을 겸비한 마케팅 기획자 이해은의 포트폴리오입니다. 기획서 작성은 물론, 실제 성과를 이끄는 SNS 광고 소재 제작까지 가능한 올라운더의 실무 역량을 확인해 보세요."
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -201,9 +200,11 @@
         .hero-image-area {
             flex: 0.8;
             display: flex;
+            flex-direction: column; /* 세로 정렬을 위한 속성 */
             justify-content: center;
             align-items: center;
             position: relative;
+            gap: 1.5rem; /* 사진과 블로그 배너 사이의 여백 정의 */
         }
 
         /* 이미지 뒤쪽 은은하게 퍼지는 후광(Glow) 효과 */
@@ -213,6 +214,9 @@
             height: 380px;
             background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, rgba(6, 182, 212, 0.05) 50%, rgba(0,0,0,0) 70%);
             z-index: 1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -55%); /* 중앙 정렬 고정 */
         }
 
         /* 깔끔하고 트렌디한 원형 프로필 프레임 */
@@ -233,6 +237,38 @@
             height: 100%;
             object-fit: cover; /* 프레임 크기에 맞춰 자동 자르기 */
             object-position: center top; /* 인물 얼굴 중심으로 정렬 */
+        }
+
+        /* 새롭게 추가된 블로그 배너 스타일 */
+        .blog-banner {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .blog-banner:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #38bdf8;
+            color: #38bdf8;
+            transform: translateY(-2px);
+        }
+
+        .blog-icon {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
         }
 
         /* 4. 모바일 및 태블릿 대응 반응형 디자인 */
@@ -261,6 +297,7 @@
             .image-glow {
                 width: 300px;
                 height: 300px;
+                transform: translate(-50%, -60%);
             }
         }
     </style>
@@ -307,6 +344,12 @@
                 <div class="profile-frame">
                     <img src="profile.png" alt="퍼포먼스 마케터 프로필 사진">
                 </div>
+                <a href="https://blog.naver.com/everlasting2-" target="_blank" class="blog-banner">
+                    <svg class="blog-icon" viewBox="0 0 24 24">
+                        <path d="M18.4 3h-3.9l-6 8.5V3H4.4v18h3.9l6-8.5V21h4.1V3z"/>
+                    </svg>
+                    <span>Naver Blog 방문하기</span>
+                </a>
             </div>
 
         </section>
